@@ -45,7 +45,8 @@ export default {
         holderName: null,
         expirationMonth: 2,
         expirationYear: 2022,
-        cvv: null
+        cvv: null,
+        brand: null
       }
     }
   },
