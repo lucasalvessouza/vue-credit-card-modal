@@ -12,7 +12,6 @@
             <div class="modal-header__title">
               Add card title
             </div>
-
             <button
               type="button"
               class="close"
@@ -26,31 +25,9 @@
         </header>
         <section class="modal-body" id="modalDescription">
           <slot name="body">
-            <VForm />
+            <VForm :card="card" />
           </slot>
         </section>
-        <!-- <footer class="modal-footer">
-          <slot name="footer">
-            <div class="modal-footer__right">
-              <button
-                type="button"
-                class="btn"
-                @click="close"
-                aria-label="Close modal"
-              >
-                Salvar
-              </button>
-              <button
-                type="button"
-                class="btn"
-                @click="close"
-                aria-label="Close modal"
-              >
-                Salvar
-              </button>
-            </div>
-          </slot>
-        </footer> -->
       </div>
     </div>
   </transition>
@@ -64,9 +41,11 @@ export default {
   data() {
     return {
       card: {
-        month: '',
-        year: '',
-        cvv: ''
+        number: null,
+        holderName: null,
+        expirationMonth: 2,
+        expirationYear: 2022,
+        cvv: null
       }
     }
   },
