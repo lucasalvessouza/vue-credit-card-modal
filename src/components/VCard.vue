@@ -1,7 +1,8 @@
 <template>
   <div class="card-form__row">
-    <div class="flip-card">
+    <div class="flip-card" :class="{ active: flipCard }">
       <div class="flip-card-inner">
+        <!-- Card front -->
         <div class="flip-card-front">
           <div class="cc-header card-form__row">
             <div class="card-form__col float-left">
@@ -34,6 +35,7 @@
           </div>
         </div>
 
+        <!-- Card back -->
         <div class="flip-card-back">
           <div class="cc-target card-form__row"></div>
           <div class="cc-info card-form__row">
@@ -53,6 +55,10 @@ export default {
     card: {
       type: Object,
       required: true
+    },
+    flipCard: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {

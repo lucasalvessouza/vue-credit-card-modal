@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VCard :card="card" />
+    <VCard :card="card" :flipCard="flipCard" />
     <div class="card-form">
       <div class="card-form__inner">
         <div class="card-input">
@@ -56,6 +56,8 @@
                 class="card-input__input"
                 v-model="card.cvv"
                 maxlength="4"
+                @focus="flipCard = true"
+                @blur="flipCard = false"
               />
             </div>
           </div>
@@ -84,6 +86,11 @@ export default {
   },
   components: {
     VCard
+  },
+  data() {
+    return {
+      flipCard: false
+    }
   }
 }
 </script>
