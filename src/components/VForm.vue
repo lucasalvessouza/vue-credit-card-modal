@@ -14,33 +14,17 @@
         </div>
         <div class="card-input">
           <label class="card-input__label">Holder name</label>
-          <input
-            type="text"
-            class="card-input__input"
-            v-model="card.holderName"
-          />
+          <input type="text" class="card-input__input" v-model="card.holderName" />
         </div>
         <div class="card-form__row">
           <div class="card-form__col">
             <div class="card-form__group">
               <label class="card-input__label">Expiration date</label>
-              <select
-                name=""
-                id=""
-                class="card-input__input -select"
-                v-model="card.expirationMonth"
-              >
-                <option v-for="(index, key) in 12" :key="key">
-                  {{ index }}
-                </option>
+              <select name id class="card-input__input -select" v-model="card.expirationMonth">
+                <option v-for="(index, key) in 12" :key="key">{{ index }}</option>
               </select>
 
-              <select
-                name=""
-                id=""
-                class="card-input__input -select"
-                v-model="card.expirationYear"
-              >
+              <select name id class="card-input__input -select" v-model="card.expirationYear">
                 <option>2020</option>
                 <option>2021</option>
                 <option>2022</option>
@@ -64,9 +48,7 @@
         </div>
         <div class="card-form__row">
           <div class="card-form__footer">
-            <button type="button" class="btn" aria-label="Close modal">
-              Salvar
-            </button>
+            <button type="button" class="btn" aria-label="Close modal" @click="saveCard">Salvar</button>
           </div>
         </div>
       </div>
@@ -91,6 +73,11 @@ export default {
     return {
       flipCard: false
     }
-  }
+  },
+  methods: {
+    saveCard() {
+      this.$emit('saveCard', this.card)
+    }
+  },
 }
 </script>

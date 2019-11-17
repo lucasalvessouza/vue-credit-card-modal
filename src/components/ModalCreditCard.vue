@@ -9,9 +9,7 @@
       >
         <header class="modal-header" id="modalTitle">
           <slot name="header">
-            <div class="modal-header__title">
-              Add card title
-            </div>
+            <div class="modal-header__title">Add card title</div>
             <button
               type="button"
               class="close"
@@ -25,7 +23,7 @@
         </header>
         <section class="modal-body" id="modalDescription">
           <slot name="body">
-            <VForm :card="card" />
+            <VForm :card="card" @saveCard="saveCard" />
           </slot>
         </section>
       </div>
@@ -43,8 +41,8 @@ export default {
       card: {
         number: null,
         holderName: null,
-        expirationMonth: 2,
-        expirationYear: 2022,
+        expirationMonth: 'MM',
+        expirationYear: 'YYYY',
         cvv: null,
         brand: null
       }
@@ -56,6 +54,18 @@ export default {
   methods: {
     close() {
       this.$emit('close')
+    },
+    saveCard() {
+      this.$emit('card', this.card)
+      this.card = {
+        number: null,
+        holderName: null,
+        expirationMonth: 'MM',
+        expirationYear: 'YYYY',
+        cvv: null,
+        brand: null
+      }
+      this.close()
     }
   }
 }

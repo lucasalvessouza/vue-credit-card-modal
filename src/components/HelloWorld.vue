@@ -1,19 +1,10 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <button
-      type="button"
-      class="btn"
-      @click="showModal"
-    >
-      Open Modal!
-    </button>
-    <modal-credit-card v-show="openModal" @close="closeModal"></modal-credit-card>
+
+    <div>{{ card }}</div>
+    <button type="button" class="btn" @click="showModal">Open Modal!</button>
+    <modal-credit-card v-show="openModal" @close="closeModal" @card="saveCard"></modal-credit-card>
   </div>
 </template>
 
@@ -24,7 +15,15 @@ export default {
   name: 'HelloWorld',
   data() {
     return {
-      openModal: false
+      openModal: false,
+      card: {
+        number: null,
+        holderName: null,
+        expirationMonth: null,
+        expirationYear: null,
+        cvv: null,
+        brand: null
+      }
     }
   },
   components: {
@@ -39,6 +38,9 @@ export default {
     },
     showModal() {
       this.openModal = true
+    },
+    saveCard(card) {
+      this.card = card
     }
   }
 }
