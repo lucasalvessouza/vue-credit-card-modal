@@ -1,5 +1,5 @@
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -30,7 +30,7 @@
   z-index: 10;
   flex-direction: column;
   width: 600px;
-  height: 100%;
+  height: auto;
   max-width: 95%;
 }
 
@@ -50,20 +50,19 @@
 .modal-footer {
   padding: 0px 15px 15px 15px;
   display: flex;
+  border-top: 1px solid #eeeeee;
+  justify-content: flex-end;
   &__right {
     width: 50%;
   }
 }
 
-.modal-footer {
-  border-top: 1px solid #eeeeee;
-  justify-content: flex-end;
-}
-
 .modal-body {
   position: relative;
   padding: 20px 10px 20px 10px;
-  height: 500px;
+  // height: 500px;
+  // height: auto;
+  // overflow: scroll;
 }
 
 .btn {
@@ -74,7 +73,7 @@
   border-radius: 5px;
   font-size: 22px;
   font-weight: 500;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   box-shadow: 3px 10px 20px 0px rgba(35, 100, 210, 0.3);
   color: #fff;
   margin-top: 20px;

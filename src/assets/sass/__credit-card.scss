@@ -61,10 +61,11 @@
     color: white;
     .cc-holder {
       text-align: start !important;
-      width: 80% !important;
+      width: 70% !important;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      margin-right: 15px;
     }
     .cc-expiration {
       text-align: start !important;
@@ -79,6 +80,7 @@
     }
     label {
       font-family: $roboto;
+      font-size: 14px;
     }
     @media screen and (max-width: 480px) {
       p {
